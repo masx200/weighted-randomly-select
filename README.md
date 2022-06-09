@@ -8,8 +8,19 @@ https://github.com/Rifdhan/weighted-randomly-select
 
 add typescript support
 
+https://github.com/masx200/weighted-randomly-select/blob/master/index.d.ts
+
 `chance` can be provided as `Infinity`
 
+```js
+assert.equal(9,  Randomly.select([{
+                    chance: Infinity, result: 9
+                }, {
+                    chance: 6, result: 19
+                }
+            ]));
+
+```
 # Installation
 
 NPM: `npm install --save @masx200/weighted-randomly-select`
