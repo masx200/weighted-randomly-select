@@ -1,37 +1,89 @@
-# weighted-randomly-select
+# Weighted-Randomly-Select
 
-#### 介绍
-Randomly select from a list of weighted outcomes
+This package lets you easily perform weighted random selection. Provide an array of objects with `chance` and `result` properties, and a random `result` will be selected according to the provided `chance` values.
 
-#### 软件架构
-软件架构说明
+thanks to author Rifdhan.
 
+https://github.com/Rifdhan/weighted-randomly-select
 
-#### 安装教程
+add typescript support
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+chance can be provided as `Infinity`
 
-#### 使用说明
+# Installation
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+NPM: `npm install --save weighted-randomly-select`
 
-#### 参与贡献
+YarnPkg: `yarn add weighted-randomly-select`
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+# Examples
 
+```javascript
+let Randomly = require("weighted-randomly-select");
 
-#### 特技
+// Every outcome can be equiprobable
+let name = Randomly.select([
+    {
+        chance: 1,
+        result: "John",
+    },
+    {
+        chance: 1,
+        result: "Mary",
+    },
+]);
+// name will be either "John" or "Mary"
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+// Some outcomes can be more probable than others
+let coin = Randomly.select([
+    {
+        chance: 1,
+        result: "Heads",
+    },
+    {
+        chance: 1,
+        result: "Tails",
+    },
+    {
+        chance: 0.01,
+        result: "Side",
+    },
+]);
+// coin will be either "Heads", "Tails", or "Side"
+
+// Chance values can be any positive number, and result values
+// can be anything other than null and undefined
+let item = Randomly.select([
+    {
+        chance: 0.8,
+        result: { someField: "someValue" },
+    },
+    {
+        chance: 20,
+        result: 42,
+    },
+    {
+        chance: 1.5,
+        result: [3, 1, 5],
+    },
+]);
+// item will be either { someField: "someValue" }, 42, or [3, 1, 5]
+```
+
+# API Reference
+
+## `Randomly.select(options)`
+
+`options`: an array of objects, each of which having a `chance` number value and `result` value
+
+`chance`: any positive floating point value (zero is permitted but such an entry will never be selected)
+
+Note: all `chance` values must add up to a value greater than zero (i.e. there should be something to select). These values _do not_ have to add up to 1 or any other specific value.
+
+Return value: one of the `result` values in the `options` array.
+
+Throws errors if any input is invalid.
+
+## `Randomly.selectWithoutValidation(options)`
+
+Same as above but does _not_ perform any validation on the provided input. If you're encountering unexpected issues, try using the above method, which does the same thing but _with_ input validation.
