@@ -19,7 +19,7 @@ YarnPkg: `yarn add @masx200/weighted-randomly-select`
 # Examples
 
 ```javascript
-let Randomly = require("weighted-randomly-select");
+let Randomly = require("@masx200/weighted-randomly-select");
 
 // Every outcome can be equiprobable
 let name = Randomly.select([
