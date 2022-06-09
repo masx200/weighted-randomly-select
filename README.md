@@ -12,9 +12,9 @@ add typescript support
 
 # Installation
 
-NPM: `npm install --save weighted-randomly-select`
+NPM: `npm install --save @masx200/weighted-randomly-select`
 
-YarnPkg: `yarn add weighted-randomly-select`
+YarnPkg: `yarn add @masx200/weighted-randomly-select`
 
 # Examples
 
