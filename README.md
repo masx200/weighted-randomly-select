@@ -2,15 +2,15 @@
 
 This package lets you easily perform weighted random selection. Provide an array of objects with `chance` and `result` properties, and a random `result` will be selected according to the provided `chance` values.
 
-thanks to author Rifdhan.
+## thanks to author Rifdhan.
 
 https://github.com/Rifdhan/weighted-randomly-select
 
-add typescript support
+## add typescript support
 
 https://github.com/masx200/weighted-randomly-select/blob/master/index.d.ts
 
-`chance` can be provided as `Infinity`
+## `chance` can be provided as `Infinity`
 
 ```js
 assert.equal(9,  Randomly.select([{
