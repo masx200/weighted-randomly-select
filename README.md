@@ -8,7 +8,7 @@ https://github.com/Rifdhan/weighted-randomly-select
 
 add typescript support
 
-chance can be provided as `Infinity`
+`chance` can be provided as `Infinity`
 
 # Installation
 
