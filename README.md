@@ -29,22 +29,27 @@ assert.equal(
     ])
 );
 ```
+
 ## 使用了二分搜索加快查找速度
 
 # Installation
 
 NPM:
+
 ```
 npm install --save @masx200/weighted-randomly-select
 ```
 
-YarnPkg: 
+YarnPkg:
+
 ```
 yarn add @masx200/weighted-randomly-select
 ```
+
 deno
-```
-https://deno.land/x/masx200_weighted_randomly_select/mod.ts
+
+```ts
+import {} from "https://deno.land/x/masx200_weighted_randomly_select/mod.ts";
 ```
 
 # Examples

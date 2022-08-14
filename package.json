@@ -11,7 +11,7 @@
     },
     "scripts": {
         "build": "rollup -c rollup.config.js",
-        "format": "npx prettier --write *.json *.js *.md */*.ts",
+        "format": "npx prettier --write *.json *.js *.md */*.ts *.ts *.mjs",
         "test": "mocha"
     },
     "license": "MIT",

@@ -112,4 +112,4 @@ export function Selector<T>(choices: Array<{ result: T; chance: number }>): {
         },
     };
 }
-export { selectWithValidation as select, selectWithoutValidation };
+export { selectWithoutValidation, selectWithValidation as select };

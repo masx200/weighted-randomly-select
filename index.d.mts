@@ -1,15 +1,21 @@
-declare function selectWithValidation<T>(choices: Array<{
+declare function selectWithValidation<T>(
+  choices: Array<{
     result: T;
     chance: number;
-}>): T;
-declare function selectWithoutValidation<T>(choices: Array<{
+  }>,
+): T;
+declare function selectWithoutValidation<T>(
+  choices: Array<{
     result: T;
     chance: number;
-}>): T;
-declare function Selector<T>(choices: Array<{
+  }>,
+): T;
+declare function Selector<T>(
+  choices: Array<{
     result: T;
     chance: number;
-}>): {
-    select: () => T;
+  }>,
+): {
+  select: () => T;
 };
-export { Selector, selectWithValidation as select, selectWithoutValidation };
+export { Selector, selectWithoutValidation, selectWithValidation as select };

@@ -1,3 +1,2 @@
 //@ts-ignore
-export { Selector, select, selectWithoutValidation } from "./src/index.ts";
-
+export { select, Selector, selectWithoutValidation } from "./src/index.ts";
