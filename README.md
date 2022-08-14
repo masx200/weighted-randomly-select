@@ -16,14 +16,17 @@ https://github.com/masx200/weighted-randomly-select/blob/master/index.d.ts
 
 ```js
 assert.equal(
-  9,
-  Randomly.select([{
-    chance: Infinity,
-    result: 9,
-  }, {
-    chance: 6,
-    result: 19,
-  }]),
+    9,
+    Randomly.select([
+        {
+            chance: Infinity,
+            result: 9,
+        },
+        {
+            chance: 6,
+            result: 19,
+        },
+    ])
 );
 ```
 
@@ -40,49 +43,49 @@ let Randomly = require("@masx200/weighted-randomly-select");
 
 // Every outcome can be equiprobable
 let name = Randomly.select([
-  {
-    chance: 1,
-    result: "John",
-  },
-  {
-    chance: 1,
-    result: "Mary",
-  },
+    {
+        chance: 1,
+        result: "John",
+    },
+    {
+        chance: 1,
+        result: "Mary",
+    },
 ]);
 // name will be either "John" or "Mary"
 
 // Some outcomes can be more probable than others
 let coin = Randomly.select([
-  {
-    chance: 1,
-    result: "Heads",
-  },
-  {
-    chance: 1,
-    result: "Tails",
-  },
-  {
-    chance: 0.01,
-    result: "Side",
-  },
+    {
+        chance: 1,
+        result: "Heads",
+    },
+    {
+        chance: 1,
+        result: "Tails",
+    },
+    {
+        chance: 0.01,
+        result: "Side",
+    },
 ]);
 // coin will be either "Heads", "Tails", or "Side"
 
 // Chance values can be any positive number, and result values
 // can be anything other than null and undefined
 let item = Randomly.select([
-  {
-    chance: 0.8,
-    result: { someField: "someValue" },
-  },
-  {
-    chance: 20,
-    result: 42,
-  },
-  {
-    chance: 1.5,
-    result: [3, 1, 5],
-  },
+    {
+        chance: 0.8,
+        result: { someField: "someValue" },
+    },
+    {
+        chance: 20,
+        result: 42,
+    },
+    {
+        chance: 1.5,
+        result: [3, 1, 5],
+    },
 ]);
 // item will be either { someField: "someValue" }, 42, or [3, 1, 5]
 ```

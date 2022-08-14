@@ -1,0 +1,8 @@
+{
+    "include": ["src"],
+    "compilerOptions": {
+        "declaration": true,
+        "strict": true,
+        "target": "ESnext"
+    }
+}

@@ -1,7 +1,3 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
 // deno-lint-ignore-file no-explicit-any
 // Performs validation on input before performing the random selection
 function selectWithValidation(choices) {
@@ -85,6 +81,4 @@ function Selector(choices) {
     };
 }
 
-exports.Selector = Selector;
-exports.select = selectWithValidation;
-exports.selectWithoutValidation = selectWithoutValidation;
+export { Selector, selectWithValidation as select, selectWithoutValidation };
