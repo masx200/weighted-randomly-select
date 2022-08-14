@@ -1,6 +1,6 @@
 {
     "name": "@masx200/weighted-randomly-select",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "description": "Randomly select from a list of weighted possible outcomes.",
     "main": "index.js",
     "types": "index.d.ts",
@@ -11,6 +11,9 @@
     "devDependencies": {
         "chai": "^3.5.0",
         "mocha": "^3.4.2",
+        "@types/chai": "^4.3.3",
+        "@types/mocha": "^9.1.1",
+        "@types/sinon": "^10.0.13",
         "sinon": "^2.3.1"
     },
     "directories": {
@@ -18,7 +21,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://gitee.com/masx200/weighted-randomly-select"
+        "url": "https://github.com/masx200/weighted-randomly-select"
     },
     "keywords": [],
     "author": "masx200",
@@ -27,5 +30,6 @@
         "diff": "5.1.0",
         "debug": "4.3.4",
         "growl": "1.10.5"
-    }
+    },
+    "dependencies": {}
 }
