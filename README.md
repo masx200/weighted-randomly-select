@@ -33,9 +33,19 @@ assert.equal(
 
 # Installation
 
-NPM: `npm install --save @masx200/weighted-randomly-select`
+NPM:
+```
+npm install --save @masx200/weighted-randomly-select
+```
 
-YarnPkg: `yarn add @masx200/weighted-randomly-select`
+YarnPkg: 
+```
+yarn add @masx200/weighted-randomly-select
+```
+deno
+```
+https://deno.land/x/masx200_weighted_randomly_select/mod.ts
+```
 
 # Examples
 
