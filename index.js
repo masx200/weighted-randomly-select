@@ -1,13 +1,15 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', { value: true });
+Object.defineProperty(exports, "__esModule", { value: true });
 
 // deno-lint-ignore-file no-explicit-any
 // Performs validation on input before performing the random selection
 function selectWithValidation(choices) {
     // Validate argument is an array
     if (!choices || !choices.length) {
-        throw new Error("Randomly Select: invalid argument, please provide a non-empty array");
+        throw new Error(
+            "Randomly Select: invalid argument, please provide a non-empty array"
+        );
     }
     // Validate that:
     // - each array entry has a 'chance' and 'result' property
@@ -15,23 +17,31 @@ function selectWithValidation(choices) {
     // - at least one result has a positive non-zero chance
     let atLeastOneChoiceHasNonZeroChance = false;
     for (let i = 0; i < choices.length; i++) {
-        if (!exists(choices[i]) ||
+        if (
+            !exists(choices[i]) ||
             !exists(choices[i].chance) ||
-            !exists(choices[i].result)) {
-            throw new Error("Randomly Select: invalid argument, each array entry " +
-                "must be an object with 'chance' and 'result' properties");
-        }
-        else if (typeof choices[i].chance !== "number" ||
-            choices[i].chance < 0) {
-            throw new Error("Randomly Select: invalid argument, 'chance' must be a positive number: " +
-                JSON.stringify(choices[i].chance));
-        }
-        else if (choices[i].chance > 0) {
+            !exists(choices[i].result)
+        ) {
+            throw new Error(
+                "Randomly Select: invalid argument, each array entry " +
+                    "must be an object with 'chance' and 'result' properties"
+            );
+        } else if (
+            typeof choices[i].chance !== "number" ||
+            choices[i].chance < 0
+        ) {
+            throw new Error(
+                "Randomly Select: invalid argument, 'chance' must be a positive number: " +
+                    JSON.stringify(choices[i].chance)
+            );
+        } else if (choices[i].chance > 0) {
             atLeastOneChoiceHasNonZeroChance = true;
         }
     }
     if (!atLeastOneChoiceHasNonZeroChance) {
-        throw new Error("Randomly Select: invalid arguments, all results have zero weight");
+        throw new Error(
+            "Randomly Select: invalid arguments, all results have zero weight"
+        );
     }
     // Do the actual random selection and return the result
     return selectWithoutValidation(choices);
@@ -59,7 +69,9 @@ function Selector(choices) {
         chanceCovered += choicesWithNonZeroChances[i].chance;
         chancePrefixSum[i] = chanceCovered;
     }
-    const biggest = choicesWithNonZeroChances.reduce((p, c) => p.chance > c.chance ? p : c).result;
+    const biggest = choicesWithNonZeroChances.reduce((p, c) =>
+        p.chance > c.chance ? p : c
+    ).result;
     return {
         select: () => {
             const value = Math.random() * totalWeight;
@@ -70,14 +82,15 @@ function Selector(choices) {
                 const chanceCovered = chancePrefixSum[mid];
                 if (chanceCovered < value) {
                     left = mid + 1;
-                }
-                else {
+                } else {
                     right = mid;
                 }
             }
             const chanceCovered = chancePrefixSum[left];
-            if (value < chanceCovered &&
-                value >= (chancePrefixSum[left - 1] ?? 0)) {
+            if (
+                value < chanceCovered &&
+                value >= (chancePrefixSum[left - 1] ?? 0)
+            ) {
                 return choicesWithNonZeroChances[left].result;
             }
             return biggest;
