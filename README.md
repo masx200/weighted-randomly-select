@@ -29,6 +29,7 @@ assert.equal(
     ])
 );
 ```
+## 使用了二分搜索加快查找速度
 
 # Installation
 
